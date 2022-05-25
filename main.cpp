@@ -19,5 +19,26 @@ int main() {
 }
 
 //Implement the flipString function here
+void flipString(string &s) {
+   // make a copy of the string reference before using substr
+   // can't pass substr as a parameter when the param is a reference to a string object
+   string tempStr = "none";
+   // stores the front and back of the strings before removing them via substr()
+   char fTemp = ' ';
+   char bTemp = ' ';
+
+   // base case
+   if (s.size() <= 1) {
+      s = s;
+   } else {
+      fTemp = s.front();
+      bTemp = s.back();
+      tempStr = s.substr(1, s.size() - 2);
+      swap(tempStr.front(), tempStr.back());
+      flipString(tempStr);
+      s = bTemp + tempStr + fTemp;
+      cout << s << endl;
+   }
+}
 
 
