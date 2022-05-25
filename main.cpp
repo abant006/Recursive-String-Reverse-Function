@@ -34,7 +34,6 @@ void flipString(string &s) {
       fTemp = s.front();
       bTemp = s.back();
       tempStr = s.substr(1, s.size() - 2);
-      swap(tempStr.front(), tempStr.back());
       flipString(tempStr);
       s = bTemp + tempStr + fTemp;
       cout << s << endl;
